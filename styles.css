@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Istok Web', Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -27,6 +30,36 @@ body {
     0%{background-position:83% 0%}
     50%{background-position:18% 100%}
     100%{background-position:83% 0%}
+}
+
+header {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 96px;
+    box-sizing: border-box;
+}
+
+#header-left {
+    font-size: 30px;
+    font-weight: bold;
+    color: #EAF9FA;
+}
+
+#header-right {
+    font-size: 30px;
+}
+
+#header-right a {
+    color: #EAF9FA;
+    text-decoration: none;
+}
+
+#header-right a:hover {
+    color: #26a7b0; /* A brighter shade of pink for hover effect */
 }
 
 #chat-container {
@@ -88,3 +121,32 @@ body {
 #chat-form button:hover {
     background-color: #0056b3;
 }
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer ul li {
+    margin: 0 15px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #EAF9FA;
+}
+/* 
+footer ul li a:hover {
+    text-decoration: underline;
+} */
