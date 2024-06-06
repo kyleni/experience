@@ -9,27 +9,61 @@ body {
     height: 100vh;
     margin: 0;
     background: linear-gradient(151deg, #020024, #090979, #00d4ff, #22c1c3);
-    background-size: 800% 800%;
+    background-size: 200% 200%;
 
-    -webkit-animation: AnimationName 25s ease infinite;
-    -moz-animation: AnimationName 25s ease infinite;
-    animation: AnimationName 25s ease infinite;
+    animation: AnimationName 10s ease infinite;
+    overflow: hidden;
+    position: relative;
 }
 
-@-webkit-keyframes AnimationName {
-    0%{background-position:83% 0%}
-    50%{background-position:18% 100%}
-    100%{background-position:83% 0%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:83% 0%}
-    50%{background-position:18% 100%}
-    100%{background-position:83% 0%}
-}
 @keyframes AnimationName {
-    0%{background-position:83% 0%}
-    50%{background-position:18% 100%}
-    100%{background-position:83% 0%}
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    filter: blur(100px);
+    animation: BlobAnimation 20s linear infinite;
+}
+
+body::before {
+    top: 0;
+    left: 0;
+    background: rgba(0, 180, 219, 0.6);
+    animation-delay: 0s;
+}
+
+body::after {
+    bottom: 0;
+    right: 0;
+    background: rgba(3, 57, 69, 0.6);
+    animation-delay: 10s;
+}
+
+@keyframes BlobAnimation {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    25% {
+        transform: scale(1.2) translate(200px, -200px);
+    }
+    50% {
+        transform: scale(1) translate(400px, 0);
+    }
+    75% {
+        transform: scale(1.2) translate(200px, 200px);
+    }
+    100% {
+        transform: scale(1) translate(0, 0);
+    }
 }
 
 header {
@@ -41,6 +75,7 @@ header {
     align-items: center;
     padding: 0 96px;
     box-sizing: border-box;
+    z-index: 10;
 }
 
 #header-left {
@@ -58,17 +93,15 @@ header {
     text-decoration: none;
 }
 
-#header-right a:hover {
-    color: #26a7b0; /* A brighter shade of pink for hover effect */
-}
-
 #chat-container {
     width: 100%;
     max-width: 600px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: white;
+    /* border: 0.25px solid #232324; */
+    border-radius: 10px;
+    background: rgba(35, 35, 36, 0.4);
+    backdrop-filter: blur(1000px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
 #chatbox {
